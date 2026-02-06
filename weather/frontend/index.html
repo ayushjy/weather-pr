@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2>Weather Checker</h2>
+
+<input id="city" placeholder="Enter city name">
+<button onclick="check()">Check</button>
+
+<div id="output"></div>
+
+<script>
+async function check(){
+
+    const city = document.getElementById("city").value
+
+    const res = await fetch(
+        `http://127.0.0.1:5000/weather?city=${city}`
+    )
+
+    const data = await res.json()
+
+    let html=""
+
+    for(let key in data){
+        html += `
+        <div class="row">
+            <span class="key">${key}</span>
+            <span class="val">${data[key]}</span>
+        </div>`
+    }
+
+    document.getElementById("output").innerHTML = html
+}
+</script>
+
+</body>
+</html>
