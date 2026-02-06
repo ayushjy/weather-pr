@@ -45,24 +45,29 @@ The backend utilizes the following Python packages (managed via `uv`):
 
 ## 🛠️ Setup & Installation
 
-### Backend Setup
+## Running the Project After Cloning
 
 The backend uses `uv` for ultra-fast Python package management.
 
-1.  Navigate to the `backend` directory:
+1.  Clone Repository
+    ```bash
+    git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+    cd YOUR_REPO_NAME
+    ```
+
+2.  Setup Backend Environment
+    Navigate to backend folder:
     ```bash
     cd backend
     ```
-
-2.  Initialize the project (if not already done):
+3.  Recreate the exact environment from project metadata:
     ```bash
-    uv init
+    uv sync
     ```
-
-3.  Add necessary dependencies:
-    ```bash
-    uv add flask requests flask-cors
-    ```
+    This installs dependencies based on:
+        pyproject.toml
+        uv.lock
+    and creates a local .venv.
 
 4.  Run the application:
     ```bash
